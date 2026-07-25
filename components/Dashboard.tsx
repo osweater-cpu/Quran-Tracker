@@ -147,7 +147,7 @@ export default function Dashboard({
 
       <h3>Today's Reading</h3>
 
-      <p>Current Page</p>
+      <p>Last Page Read</p>
 
       <input
         type="number"
@@ -166,7 +166,7 @@ export default function Dashboard({
         marginBottom: "8px",
       }}
       >
-        Current Page
+        Pages Read Today
       </p>
       
       <input
