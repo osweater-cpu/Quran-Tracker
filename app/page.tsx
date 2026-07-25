@@ -98,7 +98,7 @@ async function handleLogin() {
 async function saveReading() {
   const today = new Date().toISOString().split("T")[0];
   console.log("Today:", today);
-  console.log("Member ID:", loggedInMember.id);
+  console.log("Member ID:", loggedInMember?.id);
 
 const { data: existingReading } = await supabase
   .from("reading_logs")
@@ -115,7 +115,7 @@ if (existingReading) {
     const { error } = await supabase
   .from("reading_logs")
   .insert({
-    member_id: loggedInMember.id,
+    member_id: loggedInMember?.id,
     reading_date:new Date().toISOString().split("T")[0],
     pages_read: pagesRead,
     ending_page: currentPage + pagesRead,
