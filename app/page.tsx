@@ -103,20 +103,7 @@ async function saveReading() {
   const today = new Date().toISOString().split("T")[0];
   console.log("Today:", today);
   console.log("Member ID:", loggedInMember.id);
-
-const { data: existingReading } = await supabase
-  .from("reading_logs")
-  .select("id")
-  .eq("member_id", loggedInMember.id)
-  .eq("reading_date", today)
-  .maybeSingle();
-  console.log("Existing reading:", existingReading);
-
-if (existingReading) {
-  alert("You have already submitted today's reading.");
-  return;
-}
-    const { error } = await supabase
+  const { error } = await supabase
   .from("reading_logs")
   .insert({
     member_id: loggedInMember.id,
